@@ -8,6 +8,7 @@ import java.util.List;
 
 @Service
 public class UsuarioServiceImpl implements IUsuarioService{
+
     @Autowired
     private IUsuarioRepository repo;
 
