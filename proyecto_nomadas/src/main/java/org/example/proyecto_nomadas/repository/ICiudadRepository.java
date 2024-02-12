@@ -9,4 +9,5 @@ import java.util.List;
 public interface ICiudadRepository extends JpaRepository<Ciudad, Integer> {
     List<Ciudad> findCiudadByNombre(String nombre);
     List<Ciudad> findAll();
+
 }

@@ -1,5 +1,6 @@
 package org.example.proyecto_nomadas.controller;
 
+import jakarta.validation.Valid;
 import org.example.proyecto_nomadas.model.Ciudad;
 import org.example.proyecto_nomadas.model.dto.CiudadRequestDto;
 import org.example.proyecto_nomadas.model.dto.CiudadResponseDto;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ciudades")
+
 public class CiudadController {
     @Autowired
     private ICiudadService service;
@@ -40,13 +42,13 @@ public class CiudadController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteCiudad(@RequestBody CiudadRequestDto ciudad){
+    public ResponseEntity<Void> deleteCiudad(@Valid @RequestBody CiudadRequestDto ciudad){
       service.deleteCiudad(ciudad);
       return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Void> addCiudad(@RequestBody CiudadRequestDto ciudad){
+    public ResponseEntity<Void> addCiudad(@Valid @RequestBody CiudadRequestDto ciudad){
         Ciudad ciudad1 = service.addCiudad(ciudad);
 
         if (ciudad1 != null){
@@ -57,7 +59,7 @@ public class CiudadController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> modficarCiudad(@RequestBody CiudadRequestDto ciudad){
+    public ResponseEntity<Void> modficarCiudad(@Valid @RequestBody CiudadRequestDto ciudad){
         Ciudad ciudad1 = service.modficarCiudad(ciudad);
 
         if (ciudad1 != null){

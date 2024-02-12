@@ -1,4 +1,5 @@
 package org.example.proyecto_nomadas.controller;
+import jakarta.validation.Valid;
 import org.example.proyecto_nomadas.model.Ciudad;
 import org.example.proyecto_nomadas.service.IResenyaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ResenyaController {
     }
 
     @GetMapping("/ciudad/{ciudad}")
-    public ResponseEntity<List<Resenya>> findByCiudad(@RequestBody Ciudad ciudad){
+    public ResponseEntity<List<Resenya>> findByCiudad(@Valid @RequestBody Ciudad ciudad){
         List<Resenya> lista = service.findByCiudad(ciudad);
 
         if (!lista.isEmpty()){
@@ -40,7 +41,7 @@ public class ResenyaController {
     }
 
     @GetMapping("/usuario/{usuario}")
-    public ResponseEntity<List<Resenya>> findByUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<List<Resenya>> findByUsuario(@Valid @RequestBody Usuario usuario){
         List<Resenya> lista = service.findByUsuario(usuario);
         if (!lista.isEmpty()){
             return new ResponseEntity<>(lista, HttpStatus.OK);
@@ -50,18 +51,18 @@ public class ResenyaController {
     }
 
     @PostMapping("/addResenya")
-    public Resenya addResenya(@RequestBody Resenya resenya){
+    public Resenya addResenya(@Valid @RequestBody Resenya resenya){
         return service.addResenya(resenya);
     }
 
     @PutMapping("/modResenya")
-    public Resenya modificarResenya(@RequestBody Resenya resenya){
+    public Resenya modificarResenya(@Valid @RequestBody Resenya resenya){
         return service.modificarResenya(resenya);
     }
 
     @DeleteMapping("/deleteResenya/{resenya}")
 
-    public void deleteResenya(@RequestBody Resenya resenya){
+    public void deleteResenya(@Valid @RequestBody Resenya resenya){
         service.deleteResenya(resenya);
     }
 

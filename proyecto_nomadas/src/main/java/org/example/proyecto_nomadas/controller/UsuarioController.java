@@ -1,6 +1,7 @@
 package org.example.proyecto_nomadas.controller;
 
 
+import jakarta.validation.Valid;
 import org.example.proyecto_nomadas.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/add/{nombre}")
-    public ResponseEntity<Void> addUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<Void> addUsuario(@Valid @RequestBody Usuario usuario) {
         Usuario usuario1 = service.addUsuario(usuario);
         if (usuario1 == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -47,7 +48,7 @@ public class UsuarioController {
 
 
     @PutMapping("/mod/{nombre}")
-    public ResponseEntity<Void> modficarUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<Void> modficarUsuario(@Valid @RequestBody Usuario usuario) {
         Usuario usuario1 = service.modficarUsuario(usuario);
         if (usuario1 == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -57,7 +58,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping(("/delete/{nombre}"))
-    public ResponseEntity<Void> deleteUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<Void> deleteUsuario(@Valid @RequestBody Usuario usuario) {
         service.deleteUsuario(usuario);
         return new ResponseEntity<>(HttpStatus.OK);
     }

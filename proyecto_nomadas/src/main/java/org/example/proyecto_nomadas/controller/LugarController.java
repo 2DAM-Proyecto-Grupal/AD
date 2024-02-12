@@ -1,5 +1,6 @@
 package org.example.proyecto_nomadas.controller;
 
+import jakarta.validation.Valid;
 import org.example.proyecto_nomadas.model.Lugar;
 import org.example.proyecto_nomadas.model.dto.LugarRequestDto;
 import org.example.proyecto_nomadas.model.dto.LugarResponseDto;
@@ -43,14 +44,14 @@ public class LugarController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteLugar(@RequestBody LugarRequestDto lugar) {
+    public ResponseEntity<Void> deleteLugar(@Valid @RequestBody LugarRequestDto lugar) {
         service.deleteLugar(lugar);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Void> addLugar(@RequestBody LugarRequestDto lugar) {
+    public ResponseEntity<Void> addLugar(@Valid @RequestBody LugarRequestDto lugar) {
         Lugar sitio = service.addLugar(lugar);
 
         if (sitio != null){
@@ -61,7 +62,7 @@ public class LugarController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> modficarLugar(@RequestBody LugarRequestDto lugar) {
+    public ResponseEntity<Void> modficarLugar(@Valid @RequestBody LugarRequestDto lugar) {
         Lugar sitio = service.modficarLugar(lugar);
 
         if (sitio != null){
