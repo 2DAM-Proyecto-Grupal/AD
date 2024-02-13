@@ -2,6 +2,8 @@ package org.example.proyecto_nomadas.controller;
 
 
 import jakarta.validation.Valid;
+import org.example.proyecto_nomadas.model.dto.UsuarioRequestDto;
+import org.example.proyecto_nomadas.model.dto.UsuarioResponseDto;
 import org.example.proyecto_nomadas.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +19,8 @@ public class UsuarioController {
     private IUsuarioService service;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Usuario>> findAll() {
-        List<Usuario> lista = service.findAll();
+    public ResponseEntity<List<UsuarioResponseDto>> findAll() {
+        List<UsuarioResponseDto> lista = service.findAll();
         if (lista.isEmpty()){
             return new ResponseEntity<>(lista,HttpStatus.NO_CONTENT);
         }else{
@@ -27,8 +29,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/{nombre}")
-    public ResponseEntity<List<Usuario>> findUsuarioByNombre(@RequestParam String nombre) {
-        List<Usuario> lista = service.findUsuarioByNombre(nombre);
+    public ResponseEntity<List<UsuarioResponseDto>> findUsuarioByNombre(@RequestParam String nombre) {
+        List<UsuarioResponseDto> lista = service.findUsuarioByNombre(nombre);
         if (lista.isEmpty()){
             return new ResponseEntity<>(lista,HttpStatus.NO_CONTENT);
         }else{
@@ -37,8 +39,8 @@ public class UsuarioController {
     }
 
     @PostMapping("/add/{nombre}")
-    public ResponseEntity<Void> addUsuario(@Valid @RequestBody Usuario usuario) {
-        Usuario usuario1 = service.addUsuario(usuario);
+    public ResponseEntity<Void> addUsuario(@Valid @RequestBody UsuarioRequestDto usuarioDto) {
+        Usuario usuario1 = service.addUsuario(usuarioDto);
         if (usuario1 == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
@@ -48,8 +50,8 @@ public class UsuarioController {
 
 
     @PutMapping("/mod/{nombre}")
-    public ResponseEntity<Void> modficarUsuario(@Valid @RequestBody Usuario usuario) {
-        Usuario usuario1 = service.modficarUsuario(usuario);
+    public ResponseEntity<Void> modficarUsuario(@Valid @RequestBody UsuarioRequestDto usuarioDto) {
+        Usuario usuario1 = service.modficarUsuario(usuarioDto);
         if (usuario1 == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {

@@ -1,6 +1,8 @@
 package org.example.proyecto_nomadas.controller;
 import jakarta.validation.Valid;
 import org.example.proyecto_nomadas.model.Ciudad;
+import org.example.proyecto_nomadas.model.dto.ResenyaRequestDto;
+import org.example.proyecto_nomadas.model.dto.ResenyaResponseDto;
 import org.example.proyecto_nomadas.service.IResenyaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +19,8 @@ public class ResenyaController {
     private IResenyaService service;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Resenya>> findAll(){
-        List<Resenya> lista = service.findAll();
+    public ResponseEntity<List<ResenyaResponseDto>> findAll(){
+        List<ResenyaResponseDto> lista = service.findAll();
 
         if (!lista.isEmpty()){
 
@@ -29,8 +31,8 @@ public class ResenyaController {
     }
 
     @GetMapping("/ciudad/{ciudad}")
-    public ResponseEntity<List<Resenya>> findByCiudad(@Valid @RequestBody Ciudad ciudad){
-        List<Resenya> lista = service.findByCiudad(ciudad);
+    public ResponseEntity<List<ResenyaResponseDto>> findByCiudad(@Valid @RequestBody Ciudad ciudad){
+        List<ResenyaResponseDto> lista = service.findByCiudad(ciudad);
 
         if (!lista.isEmpty()){
 
@@ -41,8 +43,8 @@ public class ResenyaController {
     }
 
     @GetMapping("/usuario/{usuario}")
-    public ResponseEntity<List<Resenya>> findByUsuario(@Valid @RequestBody Usuario usuario){
-        List<Resenya> lista = service.findByUsuario(usuario);
+    public ResponseEntity<List<ResenyaResponseDto>> findByUsuario(@Valid @RequestBody Usuario usuario){
+        List<ResenyaResponseDto> lista = service.findByUsuario(usuario);
         if (!lista.isEmpty()){
             return new ResponseEntity<>(lista, HttpStatus.OK);
         }else{
@@ -51,12 +53,12 @@ public class ResenyaController {
     }
 
     @PostMapping("/addResenya")
-    public Resenya addResenya(@Valid @RequestBody Resenya resenya){
+    public Resenya addResenya(@Valid @RequestBody ResenyaRequestDto resenya){
         return service.addResenya(resenya);
     }
 
     @PutMapping("/modResenya")
-    public Resenya modificarResenya(@Valid @RequestBody Resenya resenya){
+    public Resenya modificarResenya(@Valid @RequestBody ResenyaRequestDto resenya){
         return service.modificarResenya(resenya);
     }
 
