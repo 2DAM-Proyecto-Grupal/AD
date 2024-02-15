@@ -15,12 +15,10 @@ public class OdooController {
     private OdooService odooService;
 
 
-    @PostMapping("/login")
-    public Object login() {
+    @PostMapping("/login/{nombre}/{pass}")
+    public Object login(@PathVariable ("nombre") String username, @PathVariable ("pass") String password) {
         String url = "http://192.168.8.110:8069/jsonrpc";
         String db = "Proyecto";
-        String username = "Juan";
-        String password = "1234";
         return odooService.loginEnOdoo(url, db, username, password);
     }
 

@@ -55,7 +55,7 @@ public class OdooService {
 
         String jsonResponse = Objects.requireNonNull(restTemplate.postForObject(url, entityExisteProducto, Object.class)).toString();
         int productId = -1;
-        String productoAComprar = "Suscripción Premium";
+        String productoAComprar = "Servicio Premium";
 
         //Los Pattern son simplemente para que busque dentro del Json que devuelve Odoo para no hacer algo mas complicado para sacar la informacion
         Pattern productoPattern = Pattern.compile("id=(\\d+), name=([^,}]+)");

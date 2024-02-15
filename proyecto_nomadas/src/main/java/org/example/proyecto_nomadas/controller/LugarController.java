@@ -63,6 +63,7 @@ public class LugarController {
 
     @PutMapping
     public ResponseEntity<Void> modficarLugar(@Valid @RequestBody LugarRequestDto lugar) {
+
         Lugar sitio = service.modficarLugar(lugar);
 
         if (sitio != null){

@@ -68,8 +68,4 @@ public class ResenyaController {
         service.deleteResenya(resenya);
     }
 
-
-
-
-
 }
