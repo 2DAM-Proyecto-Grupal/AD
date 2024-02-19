@@ -24,7 +24,6 @@ public class Usuario {
     @Column
     private String email;
 
-
     //Apellidos para los usuarios ?
     //private String apellidos;
     @Column
