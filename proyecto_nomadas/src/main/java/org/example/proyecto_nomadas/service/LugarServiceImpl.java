@@ -56,4 +56,11 @@ public class LugarServiceImpl implements ILugarService{
 
         return list.stream().map(l -> modelMapper.map(l, LugarResponseDto.class)).collect(Collectors.toList());
     }
+
+    @Override
+    public List<LugarResponseDto> findByCiudad(Ciudad ciudad) {
+        List<Lugar> list = repo.findByCiudad(ciudad);
+
+        return list.stream().map(l->modelMapper.map(l, LugarResponseDto.class)).collect(Collectors.toList());
+    }
 }

@@ -13,12 +13,12 @@ import org.example.proyecto_nomadas.model.Usuario;
 import java.util.List;
 
 @RestController
-@RequestMapping("/reseña")
+@RequestMapping("/reseñas")
 public class ResenyaController {
     @Autowired
     private IResenyaService service;
 
-    @GetMapping("/all")
+    @GetMapping()
     public ResponseEntity<List<ResenyaResponseDto>> findAll(){
         List<ResenyaResponseDto> lista = service.findAll();
 
@@ -36,16 +36,6 @@ public class ResenyaController {
 
         if (!lista.isEmpty()){
 
-            return new ResponseEntity<>(lista, HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(lista, HttpStatus.NO_CONTENT);
-        }
-    }
-
-    @GetMapping("/usuario/{usuario}")
-    public ResponseEntity<List<ResenyaResponseDto>> findByUsuario(@Valid @RequestBody Usuario usuario){
-        List<ResenyaResponseDto> lista = service.findByUsuario(usuario);
-        if (!lista.isEmpty()){
             return new ResponseEntity<>(lista, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(lista, HttpStatus.NO_CONTENT);

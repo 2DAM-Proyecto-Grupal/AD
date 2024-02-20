@@ -1,5 +1,6 @@
 package org.example.proyecto_nomadas.service;
 
+import org.example.proyecto_nomadas.model.Ciudad;
 import org.example.proyecto_nomadas.model.Lugar;
 import org.example.proyecto_nomadas.model.dto.LugarRequestDto;
 import org.example.proyecto_nomadas.model.dto.LugarResponseDto;
@@ -13,4 +14,6 @@ public interface ILugarService {
     void deleteLugar(LugarRequestDto lugar);
     List<LugarResponseDto> findAll();
     List<LugarResponseDto> findLugarByNombre(String nombre);
+
+    List<LugarResponseDto> findByCiudad(Ciudad ciudad);
 }

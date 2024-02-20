@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 
 public class CiudadResponseDto {
 
+    private int id;
+
     @Column(name = "jornada_laboral")
     private String jornadaLaboral;
 

@@ -39,6 +39,22 @@ public class OdooService {
         return restTemplate.postForObject(url, entity, Object.class);
     }
 
+    public Object getInfo(String url, int id) {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String, Object> args = new HashMap<>();
+        args.put("service", "object");
+        args.put("method", "execute");
+        args.put("args", new Object[]{"Proyecto", 2, "admin","res.users", "read",new Object[]{id}, new String[]{"name","login", "karma","is_premium"}});
+
+        JsonRpcRequest request = new JsonRpcRequest("call", args, 2);
+        HttpEntity<JsonRpcRequest> entity = new HttpEntity<>(request);
+
+        return restTemplate.postForObject(url, entity, Object.class);
+    }
+
     public Object crearVenta(String url, String db, int adminId, String adminPassword, int idUser) {
         //Busca si existe el producto y guarda su id
         RestTemplate restTemplate = new RestTemplate();

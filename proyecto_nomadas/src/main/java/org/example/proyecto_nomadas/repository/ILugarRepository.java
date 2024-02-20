@@ -10,5 +10,6 @@ import java.util.List;
 public interface ILugarRepository extends JpaRepository<Lugar, Integer> {
 
     List<Lugar> findAll();
+    List<Lugar> findByCiudad(Ciudad ciudad);
     List<Lugar> findLugarByNombre(String nombre);
 }

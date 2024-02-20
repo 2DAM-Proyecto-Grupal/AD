@@ -1,6 +1,7 @@
 package org.example.proyecto_nomadas.controller;
 
 import jakarta.validation.Valid;
+import org.example.proyecto_nomadas.model.Ciudad;
 import org.example.proyecto_nomadas.model.Lugar;
 import org.example.proyecto_nomadas.model.dto.LugarRequestDto;
 import org.example.proyecto_nomadas.model.dto.LugarResponseDto;
@@ -70,6 +71,19 @@ public class LugarController {
             return new ResponseEntity<>(HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/ciudad/{ciudad}")
+    public ResponseEntity<List<LugarResponseDto>> findByCiudad(@PathVariable("ciudad") Ciudad ciudad) {
+
+        List<LugarResponseDto> lista = service.findByCiudad(ciudad);
+
+
+        if (!lista.isEmpty()){
+            return new ResponseEntity<>(lista, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
 }

@@ -14,5 +14,4 @@ public interface IResenyaService {
     void deleteResenya (Resenya resenya);
     List<ResenyaResponseDto> findAll();
     List<ResenyaResponseDto> findByCiudad(Ciudad ciudad);
-    List<ResenyaResponseDto> findByUsuario(Usuario usuario);
 }

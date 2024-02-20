@@ -22,6 +22,12 @@ public class OdooController {
         return odooService.loginEnOdoo(url, db, username, password);
     }
 
+    @PostMapping("/user/{id}")
+    public Object getInfo(@PathVariable ("id") int id) {
+        String url = "http://192.168.8.110:8069/jsonrpc";
+        return odooService.getInfo(url, id);
+    }
+
     @PostMapping("/venta/{id_user}")
     public Object crearVenta(@PathVariable("id_user") int id_user) {
         String url = "http://192.168.8.110:8069/jsonrpc";

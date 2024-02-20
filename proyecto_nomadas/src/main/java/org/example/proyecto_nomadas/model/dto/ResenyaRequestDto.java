@@ -18,7 +18,7 @@ import java.time.LocalDate;
 public class ResenyaRequestDto {
 
     @NotNull
-    private String textoReserva;
+    private String textoResenya;
 
     @Min(0)
     @Max(5)

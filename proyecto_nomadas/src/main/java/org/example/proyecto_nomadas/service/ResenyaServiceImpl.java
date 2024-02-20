@@ -51,9 +51,5 @@ public class ResenyaServiceImpl implements IResenyaService{
         return resenyaCiudad.stream().map(resenyas -> modelMapper.map(resenyas, ResenyaResponseDto.class)).collect(Collectors.toList());
     }
 
-    @Override
-    public List<ResenyaResponseDto> findByUsuario(Usuario usuario) {
-        List<Resenya> resenyaUsuario = repo.findByUsuario(usuario);
-        return resenyaUsuario.stream().map(usuarios -> modelMapper.map(usuarios, ResenyaResponseDto.class)).collect(Collectors.toList());
-    }
+
 }

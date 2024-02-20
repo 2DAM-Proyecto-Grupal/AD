@@ -11,6 +11,5 @@ import java.util.List;
 public interface IResenyaRepository extends JpaRepository<Resenya, Integer> {
     List<Resenya> findAll();
     List<Resenya> findByCiudad(Ciudad ciudad);
-    List<Resenya> findByUsuario(Usuario usuario);
 
 }

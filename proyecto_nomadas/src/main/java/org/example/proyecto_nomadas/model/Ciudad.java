@@ -14,7 +14,7 @@ import java.util.List;
 public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
     @Column(name = "jornada_laboral")
     private String jornadaLaboral;
