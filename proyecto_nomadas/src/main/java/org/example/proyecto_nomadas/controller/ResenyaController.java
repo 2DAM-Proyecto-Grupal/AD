@@ -31,7 +31,7 @@ public class ResenyaController {
     }
 
     @GetMapping("/ciudad/{ciudad}")
-    public ResponseEntity<List<ResenyaResponseDto>> findByCiudad(@Valid @RequestBody Ciudad ciudad){
+    public ResponseEntity<List<ResenyaResponseDto>> findByCiudad(@PathVariable("ciudad") Ciudad ciudad){
         List<ResenyaResponseDto> lista = service.findByCiudad(ciudad);
 
         if (!lista.isEmpty()){
