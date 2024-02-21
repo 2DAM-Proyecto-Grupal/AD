@@ -1,6 +1,7 @@
 package org.example.proyecto_nomadas.service;
 
 import org.example.proyecto_nomadas.model.Ciudad;
+import org.example.proyecto_nomadas.model.Lugar;
 import org.example.proyecto_nomadas.model.Resenya;
 import org.example.proyecto_nomadas.model.Usuario;
 import org.example.proyecto_nomadas.model.dto.ResenyaRequestDto;
@@ -49,6 +50,13 @@ public class ResenyaServiceImpl implements IResenyaService{
     public List<ResenyaResponseDto> findByCiudad(Ciudad ciudad) {
         List<Resenya> resenyaCiudad = repo.findByCiudad(ciudad);
         return resenyaCiudad.stream().map(resenyas -> modelMapper.map(resenyas, ResenyaResponseDto.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ResenyaResponseDto> findByLugar(Lugar lugar) {
+        List<Resenya> lista = repo.findByLugar(lugar);
+
+        return lista.stream().map(l->modelMapper.map(l,ResenyaResponseDto.class)).collect(Collectors.toList());
     }
 
 

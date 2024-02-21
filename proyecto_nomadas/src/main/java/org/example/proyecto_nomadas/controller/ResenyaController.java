@@ -1,6 +1,8 @@
 package org.example.proyecto_nomadas.controller;
 import jakarta.validation.Valid;
 import org.example.proyecto_nomadas.model.Ciudad;
+import org.example.proyecto_nomadas.model.Lugar;
+import org.example.proyecto_nomadas.model.dto.LugarResponseDto;
 import org.example.proyecto_nomadas.model.dto.ResenyaRequestDto;
 import org.example.proyecto_nomadas.model.dto.ResenyaResponseDto;
 import org.example.proyecto_nomadas.service.IResenyaService;
@@ -33,6 +35,18 @@ public class ResenyaController {
     @GetMapping("/ciudad/{ciudad}")
     public ResponseEntity<List<ResenyaResponseDto>> findByCiudad(@PathVariable("ciudad") Ciudad ciudad){
         List<ResenyaResponseDto> lista = service.findByCiudad(ciudad);
+
+        if (!lista.isEmpty()){
+
+            return new ResponseEntity<>(lista, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(lista, HttpStatus.NO_CONTENT);
+        }
+    }
+
+    @GetMapping("/lugar/{lugar}")
+    public ResponseEntity<List<ResenyaResponseDto>> findByLugar(@PathVariable("lugar") Lugar lugar){
+        List<ResenyaResponseDto> lista = service.findByLugar(lugar);
 
         if (!lista.isEmpty()){
 

@@ -29,10 +29,11 @@ public class ResenyaResponseDto {
 
     private Ciudad ciudad;
 
-
     private Lugar lugar;
 
     private int id_usuario;
+
+    private String nombreUsuario;
 
 
 }
