@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 public class LugarResponseDto {
 
+    private int id;
 
     private String nombre;
 
@@ -18,5 +19,7 @@ public class LugarResponseDto {
 
 
     private String informacionContacto;
+
+
 
 }

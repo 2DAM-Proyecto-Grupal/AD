@@ -42,4 +42,7 @@ public class Resenya {
 
     @Column(name = "usuario_id")
     private int id_usuario;
+
+    @Column(name = "nombre_Usuario")
+    private String nombre_Usuario;
 }

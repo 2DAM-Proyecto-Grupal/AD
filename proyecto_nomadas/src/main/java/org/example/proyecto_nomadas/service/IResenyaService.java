@@ -1,6 +1,7 @@
 package org.example.proyecto_nomadas.service;
 
 import org.example.proyecto_nomadas.model.Ciudad;
+import org.example.proyecto_nomadas.model.Lugar;
 import org.example.proyecto_nomadas.model.Resenya;
 import org.example.proyecto_nomadas.model.Usuario;
 import org.example.proyecto_nomadas.model.dto.ResenyaRequestDto;
@@ -14,4 +15,7 @@ public interface IResenyaService {
     void deleteResenya (Resenya resenya);
     List<ResenyaResponseDto> findAll();
     List<ResenyaResponseDto> findByCiudad(Ciudad ciudad);
+
+    List<ResenyaResponseDto> findByLugar(Lugar lugar);
+
 }

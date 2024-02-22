@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.proyecto_nomadas.model.Ciudad;
 
 @Data
 @NoArgsConstructor
@@ -23,5 +24,8 @@ public class LugarRequestDto {
 
 
     private String informacionContacto;
+
+    private Ciudad ciudad;
+
 
 }
