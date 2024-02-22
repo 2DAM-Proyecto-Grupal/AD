@@ -2,7 +2,6 @@ package org.example.proyecto_nomadas.repository;
 import org.example.proyecto_nomadas.model.Ciudad;
 import org.example.proyecto_nomadas.model.Lugar;
 import org.example.proyecto_nomadas.model.Resenya;
-import org.example.proyecto_nomadas.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

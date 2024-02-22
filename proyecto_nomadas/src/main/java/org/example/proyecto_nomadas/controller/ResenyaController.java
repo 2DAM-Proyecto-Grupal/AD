@@ -2,7 +2,6 @@ package org.example.proyecto_nomadas.controller;
 import jakarta.validation.Valid;
 import org.example.proyecto_nomadas.model.Ciudad;
 import org.example.proyecto_nomadas.model.Lugar;
-import org.example.proyecto_nomadas.model.dto.LugarResponseDto;
 import org.example.proyecto_nomadas.model.dto.ResenyaRequestDto;
 import org.example.proyecto_nomadas.model.dto.ResenyaResponseDto;
 import org.example.proyecto_nomadas.service.IResenyaService;
@@ -11,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.example.proyecto_nomadas.model.Resenya;
-import org.example.proyecto_nomadas.model.Usuario;
+
 import java.util.List;
 
 @RestController
