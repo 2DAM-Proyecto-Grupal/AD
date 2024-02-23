@@ -37,7 +37,7 @@ public class ResenyaRequestDto {
 
     private Lugar lugar;
 
-    private int id_usuario;
+    private int uid_usuario;
 
     private String nombreUsuario;
 }

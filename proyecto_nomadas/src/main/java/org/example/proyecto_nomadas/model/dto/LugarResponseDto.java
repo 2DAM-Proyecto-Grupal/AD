@@ -17,6 +17,8 @@ public class LugarResponseDto {
 
     private String tipo;
 
+    private String direccion;
+
 
     private String informacionContacto;
 

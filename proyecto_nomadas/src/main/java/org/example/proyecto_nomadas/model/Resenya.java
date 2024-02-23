@@ -42,9 +42,9 @@ public class Resenya {
     @JoinColumn(name = "lugar_id")
     private Lugar lugar;
 
-    @Column(name = "usuario_id")
-    private int id_usuario;
+    @Column(name = "usuario_uid")
+    private int uid_usuario;
 
-    @Column(name = "nombre_Usuario")
-    private String nombre_Usuario;
+    @Column(name = "nombreUsuario")
+    private String nombreUsuario;
 }
