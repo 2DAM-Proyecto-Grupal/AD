@@ -19,6 +19,9 @@ public class Resenya {
     private Integer id;
 
     @Column
+    private String titulo;
+
+    @Column
     private String textoResenya;
 
     @Column
@@ -27,8 +30,7 @@ public class Resenya {
 
     //Fecha de creacion de la reseña
     @Column(name = "fecha_creacion_resenya")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate fechaCreacion;
+    private String fechaCreacion;
 
     //Identificacion del usuario que deja la reseña ?
 

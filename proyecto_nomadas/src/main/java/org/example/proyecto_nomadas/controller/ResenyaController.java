@@ -55,7 +55,7 @@ public class ResenyaController {
         }
     }
 
-    @PostMapping("/addResenya")
+    @PostMapping()
     public Resenya addResenya(@Valid @RequestBody ResenyaRequestDto resenya){
         return service.addResenya(resenya);
     }

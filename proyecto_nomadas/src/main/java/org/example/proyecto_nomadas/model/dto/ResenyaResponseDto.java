@@ -19,13 +19,15 @@ public class ResenyaResponseDto {
 
     private Integer id;
 
+    private String titulo;
+
     private String textoResenya;
 
 
     private Integer valoracion;
 
 
-    private LocalDate fechaCreacion;
+    private String fechaCreacion;
 
     private Ciudad ciudad;
 

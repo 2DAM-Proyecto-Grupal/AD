@@ -4,10 +4,13 @@ package org.example.proyecto_nomadas.model.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.proyecto_nomadas.model.Ciudad;
+import org.example.proyecto_nomadas.model.Lugar;
 
 import java.time.LocalDate;
 
@@ -18,12 +21,23 @@ import java.time.LocalDate;
 public class ResenyaRequestDto {
 
     @NotNull
+    private String titulo;
+
+    @NotNull
     private String textoResenya;
 
     @Min(0)
     @Max(5)
     private Integer valoracion;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate fechaCreacion;
+    @NotBlank
+    private String fechaCreacion;
+
+    private Ciudad ciudad;
+
+    private Lugar lugar;
+
+    private int id_usuario;
+
+    private String nombreUsuario;
 }
